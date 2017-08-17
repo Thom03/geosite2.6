@@ -1,0 +1,11 @@
+README.rst
+nsis/__init__.py
+nsis/settings.py
+nsis/urls.py
+nsis/wsgi.py
+nsis.egg-info/PKG-INFO
+nsis.egg-info/SOURCES.txt
+nsis.egg-info/dependency_links.txt
+nsis.egg-info/not-zip-safe
+nsis.egg-info/requires.txt
+nsis.egg-info/top_level.txt
