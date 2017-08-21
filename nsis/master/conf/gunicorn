@@ -1,0 +1,19 @@
+
+# This template uses the following variables to be filled in
+#  $ROOTPATH	- path to main project (used to store logs, uploaded, static, virtual env)
+#  $PORTNUM		- Port number to use for wsgi app: use 80XX where XX is SITE_ID
+
+CONFIG = {
+    #'mode': 'wsgi',
+    'working_dir': '/home/geoswift/nsis/../nsis/nsis/master',
+    'python': '/home/geoswift/nsis/../venv/bin/python',
+    'args': (
+        '--bind=127.0.0.1:8001',
+        '--workers=4',
+        '--timeout=300',
+        '--access-logfile=/home/geoswift/nsis/../logs/master-gunicorn-access.log',
+        '--error-logfile=/home/geoswift/nsis/../logs/master-gunicorn-error.log',
+        'wsgi',
+        #'--log-level=debug',
+    ),
+}

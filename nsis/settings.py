@@ -24,8 +24,9 @@ from geonode.settings import *
 #
 # General Django development settings
 #
+SITE_ID = 1
+SITENAME = 'master'
 
-SITENAME = 'nsis'
 
 # Defines the directory that contains the settings file as the LOCAL_ROOT
 # It is used for relative settings elsewhere.
@@ -53,6 +54,77 @@ LOCALE_PATHS = (
     os.path.join(LOCAL_ROOT, 'locale'),
     ) + LOCALE_PATHS
 
-INSTALLED_APPS = INSTALLED_APPS + ('nsis',)
+
+
+
 
 TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
+
+
+INSTALLED_APPS = (
+
+    'modeltranslation',
+
+    # Boostrap admin theme
+    # 'django_admin_bootstrapped.bootstrap3',
+    # 'django_admin_bootstrapped',
+
+    #geosites
+    'geonode.contrib.geosites',
+
+    # Apps bundled with Django
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.admin',
+    'django.contrib.sitemaps',
+    'django.contrib.staticfiles',
+    'django.contrib.messages',
+    'django.contrib.humanize',
+    'django.contrib.gis',
+
+    # Third party apps
+
+    # Utility
+    'pagination',
+    'taggit',
+    'treebeard',
+    'friendlytagloader',
+    'geoexplorer',
+    'leaflet',
+    'django_extensions',
+    #'geonode-client',
+    # 'haystack',
+    'autocomplete_light',
+    'mptt',
+    # 'modeltranslation',
+    # 'djkombu',
+    'djcelery',
+    # 'kombu.transport.django',
+    'storages',
+
+    # Theme
+    "pinax_theme_bootstrap_account",
+    "pinax_theme_bootstrap",
+    'django_forms_bootstrap',
+
+    # Social
+    'account',
+    'avatar',
+    'dialogos',
+    'agon_ratings',
+    # 'notification',
+    'announcements',
+    'actstream',
+    'user_messages',
+    'tastypie',
+    'polymorphic',
+    'guardian',
+    'oauth2_provider',
+
+) + GEONODE_APPS
+
+
+INSTALLED_APPS = INSTALLED_APPS + ('master',)
+

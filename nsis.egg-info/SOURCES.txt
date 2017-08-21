@@ -1,5 +1,7 @@
 README.rst
 nsis/__init__.py
+nsis/post_settings.py
+nsis/pre_settings.py
 nsis/settings.py
 nsis/urls.py
 nsis/wsgi.py
