@@ -5,7 +5,7 @@
 ###############################################
 
 # path for static and uploaded files
-SERVE_PATH = '/home/geoswift/nsis/..'
+SERVE_PATH = '{{ root_path }}'
 
 # database info
 DATABASE_ENGINE = 'postgresql_psycopg2'
@@ -47,7 +47,7 @@ EMAIL_USE_TLS = True
 #ACCOUNT_EMAIL_CONFIRMATION_REQUIRED=True
 
 # uncomment for production
-# PROXY_ALLOWED_HOSTS = ('.geonode.org')
+# PROXY_ALLOWED_HOSTS = ('.{{ domain }}')
 
 # localhost by default
 # GEOSERVER_URL = 'http://localhost:8080/'

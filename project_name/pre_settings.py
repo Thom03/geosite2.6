@@ -11,7 +11,7 @@ execfile(os.path.join(GEOSITES_ROOT, 'pre_settings.py'))
 # global settings
 
 # base urls for all sites
-ROOT_URLCONF = 'nsis.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
 # Zinnia blog app
 INSTALLED_APPS = INSTALLED_APPS + (

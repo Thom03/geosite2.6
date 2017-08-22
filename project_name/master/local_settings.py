@@ -6,7 +6,7 @@
 import os
 
 # Outside URL
-SITEURL = 'http://geonode.geonode.org'
+SITEURL = 'http://geonode.{{ domain }}'
 
 # databases unique to site if not defined in site settings
 """

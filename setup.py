@@ -5,11 +5,11 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 setup(
-    name="nsis",
+    name="{{ project_name }}",
     version="0.2",
-    author="",
+    author="Thomas Muteti",
     author_email="",
-    description="nsis, based on GeoNode",
+    description="{{ project_name }}, based on GeoNode",
     long_description=(read('README.rst')),
     # Full list of classifiers can be found at:
     # http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -18,8 +18,8 @@ setup(
     ],
     license="BSD",
     keywords="nsis geonode django",
-    url='https://github.com/nsis/nsis',
-    packages=['nsis',],
+    url='https://github.com/{{ project_name }}/{{ project_name }}',
+    packages=['{{ project_name }}',],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
