@@ -1,4 +1,4 @@
-Nsis
+Geosites installation
 ========================
 
 You should write some docs, it's good for the soul.
@@ -16,8 +16,11 @@ Install geonode with::
 
 Create a new template based on the geonode example project.::
     
-    $ django-admin startproject my_geonode --template=https://github.com/GeoNode/geonode-project/archive/2.6.zip -epy,rst 
-    $ sudo pip install -e my_geonode
+    $ django-admin startproject project_name --template=https://github.com/GeoNode/geonode-project/archive/2.6.zip -epy,rst 
+    
+    $ cd project_name
+
+    $ bash ./setup.sh example.org
 
 .. note:: You should NOT use the name geonode for your project as it will conflict with the default geonode package name.
 
