@@ -9,5 +9,5 @@ find . -type f ! -name setup.sh -exec sed -i "s|{{ root_path }}|$PWD/..|g" {} +
 find . -type f ! -name setup.sh -exec sed -i "s/{{ domain }}/$DOMAIN/g" {} +
 
 # install virtualenv and geonode
-pip install -e .
+sudo pip install -e .
 mkdir logs

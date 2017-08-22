@@ -10,7 +10,7 @@ setup(
     author="Thomas Muteti",
     author_email="",
     description="{{ project_name }}, based on GeoNode",
-    long_description=(read('README.rst')),
+    long_description=(read('README.md')),
     # Full list of classifiers can be found at:
     # http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
