@@ -52,4 +52,3 @@ EMAIL_USE_TLS = True
 # localhost by default
 # GEOSERVER_URL = 'http://localhost:8080/'
 
-ALLOWED_HOSTS = ['geonode.geonode.org',]
