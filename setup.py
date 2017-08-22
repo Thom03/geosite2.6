@@ -17,7 +17,7 @@ setup(
         'Development Status :: 1 - Planning',
     ],
     license="BSD",
-    keywords="nsis geonode django",
+    keywords="{{ project_name }} geonode django",
     url='https://github.com/{{ project_name }}/{{ project_name }}',
     packages=['{{ project_name }}',],
     include_package_data=True,
