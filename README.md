@@ -6,6 +6,7 @@ Installation
 ------------
 
 Install geonode with::
+To create a new project using geosites-project as a template, follow the steps below to set up a virtual environment, install GeoNode, and create a GeoSites project.  In the examples below project_name is a unique name for your project and example.org is the domain for the GeoNode sites.
 
     $ sudo add-apt-repository ppa:geonode/stable
 
@@ -15,6 +16,8 @@ Install geonode with::
 
     
     $ django-admin startproject project_name --template=https://github.com/Thom03/geosite2.6/archive/master.zip -epu,rst,yml
+
+
     $ cd project_name
     
     $ bash ./setup.sh example.org
@@ -23,26 +26,52 @@ Install geonode with::
 .. note:: You should NOT use the name geonode for your project as it will conflict with the default geonode package name.
 
 
+### GeoServer
 
-Usage
------
+A single GeoServer instance is used to serve data to all of the GeoSites.  Install GeoServer as normal for GeoNode either on the same machine or a different one. Each site will proxy the /geoserver URL to the address of GeoServer (see the nginx configuration files). However, The default GeoNode installation sets the URL of the GeoNode site in one of the GeoServer config files: Edit the *GEOSERVER_DATA_DIR/security/auth/geonodeAuthProvider/config.xml* by changing the baseUrl field to an empty string:
 
-Rename the local_settings_sample.py to local_settings.py and edit it's content by setting the SITEURL, SITE_ID and SITENAME.
+	<baseUrl></baseUrl>
 
-Master
------
-Master must have a SITE_ID of 1
+When baseUrl is empty, GeoServer will attempt to authenticate against the requesting URL.  Since a reverse proxy to GeoServer is configured on the web servers the requesting URL can be used to determine the URL to GeoNode. In fact, setting baseUrl to an empty string will work on a non GeoSites implementation of GeoNode as well, since a proxy is configured by default for a regular GeoNode project as well.
 
-In order to use geonode in Multi-tenancy mode, follow these steps:
+## GeoSites Project
 
-check in settings.py if 'geonode.contrib.geosites' in GEONODE_CONTRIB_APPS is rightly uncommented
-add in settings.py 'geonode.contrib.geosites' in INSTALLED_APPS
-Setting.py of the master has to be modifies so that 'geonode.contrib.geosites' is 
-activated since Geonode 2.6 geosites are included as Contrib Apps.
-Copy the installed apps for installed   geonode and include them into settings.py 
-and uncomment:
+After installing you will have a directory of files for your project. A GeoSites project looks similar to a normal GeoNode project, but with additional folders and settings files for sites
 
-        'geonode.contrib.geosites'
+~~~
+geosites-project
+├── project_name
+│   ├── __init__.py
+│   ├── local_settings.py
+│   ├── master
+│   │   ├── conf
+│   │   │   ├── gunicorn
+│   │   │   └── nginx
+│   │   ├── __init__.py
+│   │   ├── local_settings.py
+│   │   ├── settings.py
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   │   └── site_base.css
+│   │   │   ├── img
+│   │   │   │   └── README
+│   │   │   ├── js
+│   │   │   │   └── README
+│   │   │   └── README
+│   │   ├── templates
+│   │   │   ├── site_base.html
+│   │   │   ├── site_index.html
+│   │   └── wsgi.py
+│   ├── post_settings.py
+│   ├── pre_settings.py
+│   ├── sites.json
+│   └── urls.py
+├── manage_all.py
+├── manage.py
+├── README.rst
+├── setup.py
+└── setup.sh
+~~~
 
 Naviage to /etc/apache2/site-available/ to copy conf file for geonode for your master site
 
